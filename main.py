@@ -83,5 +83,11 @@ def tockenize(x_train,y_train,x_val,y_val):
     # add dtype=object
     return np.array(final_list_train,dtype=object), np.array(encoded_train),np.array(final_list_test,dtype=object), np.array(encoded_test),onehot_dict
 
-np.array(final_list_test[:2],dtype=object)
 x_train,y_train,x_test,y_test,vocab = tockenize(x_train,y_train,x_test,y_test)
+
+print(f'Length of vocabulary is {len(vocab)}')
+
+rev_len = [len(i) for i in x_train]
+pd.Series(rev_len).hist()
+plt.show()
+pd.Series(rev_len).describe()
